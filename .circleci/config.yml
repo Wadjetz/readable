@@ -8,8 +8,21 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
       - run: docker build -f Dockerfile -t wadjetz/readable .
-      - run: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+      - run: echo $DOCKER_PASSWORD | docker login -u wadjetz --password-stdin
       - run: docker push wadjetz/readable
 
 workflows:
