@@ -1,0 +1,16 @@
+# Check https://circleci.com/docs/2.0
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:11.10.1
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: echo "Hello World"
+
+workflows:
+  version: 2
+  mindstream:
+    jobs:
+      - build
