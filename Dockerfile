@@ -1,4 +1,4 @@
-FROM node:11.11.0-alpine
+FROM node:12.4.0-alpine
 
 COPY . /readable
 
