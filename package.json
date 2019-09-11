@@ -12,7 +12,7 @@
   },
   "main": "src/index.js",
   "dependencies": {
-    "@postlight/mercury-parser": "2.1.1",
+    "@postlight/mercury-parser": "2.2.0",
     "express": "4.17.1"
   },
   "scripts": {
