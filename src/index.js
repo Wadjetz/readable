@@ -10,7 +10,7 @@ app.get('/readable', function (req, res) {
         res.json(error)
     )
 })
-  
+
 app.listen(3000, function () {
     console.log('App listening on port 3000!')
 })
