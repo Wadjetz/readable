@@ -11,12 +11,25 @@
     "url": "git+https://github.com/Wadjetz/readable.git"
   },
   "main": "src/index.js",
+  "scripts": {
+    "start": "ts-node src/index.js",
+    "dev": "ts-node-dev src/index.ts",
+    "format": "prettier --write \"src/**/{*.ts,*.tsx}\"",
+    "format-check": "prettier --check \"src/**/{*.ts,*.tsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "@postlight/mercury-parser": "2.2.0",
     "express": "4.17.1"
   },
-  "scripts": {
-    "start": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "@types/express": "4.17.1",
+    "@types/postlight__mercury-parser": "2.2.2",
+    "prettier": "2.0.5",
+    "ts-node": "8.10.2",
+    "ts-node-dev": "1.0.0-pre.52",
+    "tslint": "6.1.2",
+    "tslint-react": "5.0.0",
+    "typescript": "3.9.7"
   }
 }
