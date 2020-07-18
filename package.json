@@ -12,7 +12,10 @@
   },
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "ts-node src/index.js",
+    "dev": "ts-node-dev src/index.ts",
+    "format": "prettier --write \"src/**/{*.ts,*.tsx}\"",
+    "format-check": "prettier --check \"src/**/{*.ts,*.tsx}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -21,11 +24,12 @@
   },
   "devDependencies": {
     "@types/express": "4.17.1",
-    "@types/postlight__mercury-parser": "^2.2.2",
-    "prettier": "1.18.2",
-    "ts-node-dev": "1.0.0-pre.43",
-    "tslint": "5.20.0",
-    "tslint-react": "4.1.0",
-    "typescript": "3.6.4"
+    "@types/postlight__mercury-parser": "2.2.2",
+    "prettier": "2.0.5",
+    "ts-node": "8.10.2",
+    "ts-node-dev": "1.0.0-pre.52",
+    "tslint": "6.1.2",
+    "tslint-react": "5.0.0",
+    "typescript": "3.9.7"
   }
 }
