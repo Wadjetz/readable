@@ -1,0 +1,25 @@
+name: Checking
+
+on: [push]
+
+jobs:
+  build:
+    name: Checking
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+      - name: Checking
+        run: |
+          npm ci
+          npm run format-check
+          npm run code-check
