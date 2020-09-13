@@ -19,23 +19,23 @@ jobs:
           repository: wadjetz/readable
           tag_with_ref: true
       - name: Deploy to server with SSH
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USERNAME }}
-        password: ${{ secrets.SERVER_PASSWORD }}
-        port: ${{ secrets.SERVER_PORT }}
-        script: |
-          cd docker-readable
-          cat > docker-compose.yml << EOF
-          version: '3'
-          services:
-              readable:
-                  image: wadjetz/readable:latest
-                  container_name: readable
-                  ports:
-                      - 3000:3000
-          EOF
-          docker-compose down
-          docker-compose pull
-          docker-compose up -d
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          port: ${{ secrets.SERVER_PORT }}
+          script: |
+            cd docker-readable
+            cat > docker-compose.yml << EOF
+            version: '3'
+            services:
+                readable:
+                    image: wadjetz/readable:latest
+                    container_name: readable
+                    ports:
+                        - 3000:3000
+            EOF
+            docker-compose down
+            docker-compose pull
+            docker-compose up -d
