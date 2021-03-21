@@ -1,4 +1,4 @@
-FROM node:14.9.0
+FROM node:15.12.0-alpine
 
 COPY . /readable
 
@@ -6,6 +6,6 @@ WORKDIR /readable
 
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 4300
 
 CMD npm start

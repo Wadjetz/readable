@@ -8,8 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Use Node ${{ matrix.node-version }}
         uses: actions/setup-node@v1
+        with:
+          node-version: '15'
+
       - name: Cache
         uses: actions/cache@v2
         with:
@@ -18,6 +22,7 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
+
       - name: Checking
         run: |
           npm ci

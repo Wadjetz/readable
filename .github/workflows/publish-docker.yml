@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
         with:
@@ -18,6 +19,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: wadjetz/readable
           tag_with_ref: true
+
       - name: Deploy to server with SSH
         uses: appleboy/ssh-action@master
         with:
@@ -34,7 +36,7 @@ jobs:
                     image: wadjetz/readable:latest
                     container_name: readable
                     ports:
-                        - 3000:3000
+                        - 3000:4300
             EOF
             docker-compose down
             docker-compose pull
