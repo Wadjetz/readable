@@ -12,9 +12,7 @@ app.get("/readable", (req, res) =>
     .then((result) => {
       if (result.content) {
         const originalUrl = new url.URL(req.query.url as string)
-        console.log("originalUrl")
-        const origin = originalUrl.origin
-        const content = parse(result.content, origin)
+        const content = parse(result.content, originalUrl.origin)
         res.json({ ...result, content })
       } else {
         res.json(result)
